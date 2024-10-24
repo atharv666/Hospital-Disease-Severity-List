@@ -10,10 +10,17 @@ struct Patient{ // Struct for storing patient details
 };
 class PriorityList{ // Class for managing a priority list of patients
     Patient *head;
-    int beds = 10; // Number of available hospital beds (initially 10)
+    int beds; // Number of available hospital beds (initially 10)
     public:
         PriorityList(){
             head = NULL;
+            beds = 10;
+        }
+        void ClearBed(){
+            if(beds <= 10){
+                beds++;
+            }
+            return;
         }
         void AddToList(string n, string g, int c, int p){ // Function to add a new patient to the priority list
             Patient *nn = new Patient; 
